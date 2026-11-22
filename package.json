@@ -1,0 +1,13 @@
+{
+  "name": "chirp-social-feed",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A social feed and AI chat app built with HTML5, CSS and vanilla JavaScript.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

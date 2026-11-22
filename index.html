@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chirp — Social Feed &amp; AI Assistant</title>
+    <meta
+      name="description"
+      content="A responsive Twitter-style social feed built with HTML5, CSS3, and modular ES6+ JavaScript, powered by JSONPlaceholder and OpenRouter AI."
+    />
+    <meta property="og:title" content="Chirp — Social Feed &amp; AI Assistant" />
+    <meta
+      property="og:description"
+      content="A responsive Twitter-style social feed built with HTML5, CSS3, and modular ES6+ JavaScript, powered by JSONPlaceholder and OpenRouter AI."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/assets/icons/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- Left Desktop Navigation Sidebar -->
+      <aside class="sidebar-left" aria-label="Sidebar">
+        <div class="sidebar-left-inner">
+          <a href="#home" class="brand-link" id="brand-home-link" aria-label="Chirp Home">
+            <img src="/assets/icons/logo.svg" alt="Chirp logo" class="brand-logo" width="32" height="32" />
+            <span class="brand-name">Chirp</span>
+          </a>
+
+          <nav class="sidebar-nav" aria-label="Primary navigation">
+            <button
+              type="button"
+              class="nav-item is-active"
+              data-nav="home"
+              id="nav-home"
+              aria-current="page"
+            >
+              <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 3.2 3.5 10.1a1 1 0 0 0-.37.78V20a1 1 0 0 0 1 1h5.37v-5.75h5V21h5.37a1 1 0 0 0 1-1v-9.12a1 1 0 0 0-.37-.78L12 3.2Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span class="nav-label">Home</span>
+            </button>
+
+            <button type="button" class="nav-item" data-nav="profile" id="nav-profile">
+              <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.42 0-8 2.46-8 5.5 0 .83.67 1.5 1.5 1.5h13c.83 0 1.5-.67 1.5-1.5 0-3.04-3.58-5.5-8-5.5Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span class="nav-label">Profile</span>
+            </button>
+
+            <button type="button" class="nav-item" data-nav="ai" id="nav-ai">
+              <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.15A9 9 0 1 0 12 3Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9.5 10.5h5M9.5 13.8h3.2"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span class="nav-label">Ask AI</span>
+            </button>
+          </nav>
+
+          <button type="button" class="sidebar-account" id="sidebar-account-btn" aria-label="Open your profile">
+            <span class="avatar avatar-sm avatar-blue" id="sidebar-account-avatar">LG</span>
+            <span class="sidebar-account-meta">
+              <span class="sidebar-account-name" id="sidebar-account-name">Leanne Graham</span>
+              <span class="sidebar-account-handle" id="sidebar-account-handle">@Bret</span>
+            </span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Center Main Content Column -->
+      <main class="main-column">
+        <header class="top-header" id="main-header">
+          <div class="top-header-left">
+            <button
+              type="button"
+              class="back-btn is-hidden"
+              id="header-back-btn"
+              aria-label="Back to Home feed"
+            >
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <path
+                  d="M19 12H5m6-6-6 6 6 6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="top-header-titles">
+              <h1 class="top-header-title" id="header-title">Home</h1>
+              <p class="top-header-subtitle is-hidden" id="header-subtitle"></p>
+            </div>
+          </div>
+          <button type="button" class="mobile-profile-shortcut" id="mobile-header-avatar-btn" aria-label="Open your profile">
+            <span class="avatar avatar-sm avatar-blue" id="mobile-header-avatar">LG</span>
+          </button>
+        </header>
+
+        <!-- Home View -->
+        <section id="home-view" class="view-section" aria-label="Home feed">
+          <!-- Compose Tweet Box -->
+          <section class="compose-box" id="compose-section" aria-label="Compose a new post">
+            <div class="compose-avatar-wrap">
+              <span class="avatar avatar-md avatar-blue" id="compose-user-avatar">LG</span>
+            </div>
+            <form class="compose-form" id="compose-form" novalidate>
+              <label for="compose-input" class="sr-only">What is happening?</label>
+              <textarea
+                id="compose-input"
+                class="compose-textarea"
+                rows="3"
+                maxlength="280"
+                placeholder="What is happening?"
+                aria-describedby="char-counter-text"
+              ></textarea>
+              <div class="compose-toolbar">
+                <div class="compose-counter" id="compose-counter-wrap">
+                  <svg class="counter-ring" viewBox="0 0 28 28" width="24" height="24" aria-hidden="true">
+                    <circle class="counter-ring-track" cx="14" cy="14" r="10.5" />
+                    <circle
+                      class="counter-ring-progress"
+                      id="char-counter-ring"
+                      cx="14"
+                      cy="14"
+                      r="10.5"
+                    />
+                  </svg>
+                  <span class="counter-text" id="char-counter-text">0 / 280</span>
+                </div>
+                <button type="submit" class="btn-primary" id="compose-submit" disabled>
+                  Post
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <!-- Loading / Error Status Banner -->
+          <div id="feed-status" class="feed-status" aria-live="polite"></div>
+
+          <!-- Posts Feed Container -->
+          <div id="feed-list" class="feed-list" aria-label="Posts"></div>
+        </section>
+
+        <!-- User Profile View -->
+        <section id="profile-view" class="view-section is-hidden" aria-label="User profile">
+          <div id="profile-container" class="profile-container"></div>
+        </section>
+      </main>
+
+      <!-- Right Sidebar: Who to Follow -->
+      <aside class="sidebar-right" aria-label="Who to follow">
+        <div class="sidebar-right-inner">
+          <section class="who-to-follow-card" id="who-to-follow-section">
+            <h2 class="sidebar-card-title">Who to follow</h2>
+            <div id="suggested-users-list" class="suggested-users-list">
+              <p class="suggested-loading-text">Loading suggestions...</p>
+            </div>
+          </section>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+      <button type="button" class="mobile-nav-item is-active" data-nav="home" id="mobile-nav-home">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 3.2 3.5 10.1a1 1 0 0 0-.37.78V20a1 1 0 0 0 1 1h5.37v-5.75h5V21h5.37a1 1 0 0 0 1-1v-9.12a1 1 0 0 0-.37-.78L12 3.2Z"
+            fill="currentColor"
+          />
+        </svg>
+        <span>Home</span>
+      </button>
+
+      <button type="button" class="mobile-nav-item" data-nav="profile" id="mobile-nav-profile">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.42 0-8 2.46-8 5.5 0 .83.67 1.5 1.5 1.5h13c.83 0 1.5-.67 1.5-1.5 0-3.04-3.58-5.5-8-5.5Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span>Profile</span>
+      </button>
+
+      <button type="button" class="mobile-nav-item" data-nav="ai" id="mobile-nav-ai">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.15A9 9 0 1 0 12 3Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M9.5 10.5h5M9.5 13.8h3.2"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
+        </svg>
+        <span>Ask AI</span>
+      </button>
+    </nav>
+
+    <!-- Floating AI Chat Button -->
+    <button
+      type="button"
+      class="ai-fab"
+      id="ai-fab"
+      aria-label="Open Ask AI chat assistant"
+      aria-expanded="false"
+      aria-controls="ai-chat-panel"
+    >
+      <span>AI</span>
+    </button>
+
+    <!-- AI Chat Assistant Panel -->
+    <section
+      class="ai-chat-panel is-hidden"
+      id="ai-chat-panel"
+      role="dialog"
+      aria-label="Ask AI chat assistant"
+      aria-modal="false"
+    >
+      <header class="ai-chat-header">
+        <div class="ai-chat-header-title-wrap">
+          <h2 class="ai-chat-title">Ask AI</h2>
+          <span class="ai-chat-subtitle">OpenRouter assistant</span>
+        </div>
+        <div class="ai-chat-header-actions">
+          <button type="button" class="ai-text-btn" id="ai-clear-btn" title="Clear conversation">
+            Clear
+          </button>
+          <button type="button" class="ai-close-btn" id="ai-close-btn" aria-label="Close Ask AI">
+            Close
+          </button>
+        </div>
+      </header>
+
+      <div class="ai-messages" id="ai-messages" aria-live="polite"></div>
+
+      <div class="ai-thinking is-hidden" id="ai-thinking" aria-live="polite">
+        <span class="thinking-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span>Thinking...</span>
+      </div>
+
+      <div class="ai-error is-hidden" id="ai-error" role="alert"></div>
+
+      <form class="ai-input-form" id="ai-form">
+        <label for="ai-input" class="sr-only">Ask about any post or question</label>
+        <input
+          type="text"
+          id="ai-input"
+          class="ai-input"
+          placeholder="Ask about any post"
+          autocomplete="off"
+        />
+        <button type="submit" class="btn-primary ai-send-btn" id="ai-send-btn">Send</button>
+      </form>
+    </section>
+
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

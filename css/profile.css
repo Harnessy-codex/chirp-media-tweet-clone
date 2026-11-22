@@ -1,0 +1,129 @@
+
+     Chirp — User Profile Stylesheet
+
+.profile-container {
+  width: 100%;
+}
+
+.profile-banner {
+  width: 100%;
+  height: 170px;
+  background-color: #e0f2fe;
+  background-image: url('/assets/images/default-cover.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-details {
+  padding: 0 20px 18px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.profile-avatar-actions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: -48px;
+  margin-bottom: 12px;
+}
+
+.profile-avatar-frame {
+  border-radius: var(--radius-full);
+  border: 4px solid var(--bg-page);
+  background-color: var(--bg-page);
+  display: inline-flex;
+}
+
+.profile-own-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 6px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-full);
+}
+
+.profile-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.profile-handle {
+  margin: 2px 0 12px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.profile-bio {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.profile-meta-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.profile-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.profile-meta-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+
+.profile-meta-link {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.profile-meta-link:hover {
+  text-decoration: underline;
+}
+
+.profile-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.profile-stat-value {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.profile-posts-heading {
+  margin: 0;
+  padding: 14px 20px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.profile-empty-posts {
+  padding: 32px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+}

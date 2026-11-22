@@ -1,0 +1,170 @@
+/* ==========================================================================
+   Chirp — Responsive Layout Stylesheet
+   ========================================================================== */
+
+/* Tablet: Hide Right Sidebar, Keep Compact Left Sidebar */
+@media (max-width: 1080px) {
+  .app-shell {
+    grid-template-columns: 80px minmax(0, 640px);
+    justify-content: center;
+  }
+
+  .sidebar-right {
+    display: none;
+  }
+
+  .sidebar-left {
+    padding: 16px 8px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidebar-left-inner {
+    align-items: center;
+  }
+
+  .brand-name,
+  .nav-label,
+  .sidebar-account-meta {
+    display: none;
+  }
+
+  .nav-item {
+    padding: 12px;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+  }
+
+  .sidebar-account {
+    width: auto;
+    padding: 6px;
+  }
+}
+
+/* Mobile: Bottom Navigation Bar, Full-Width Feed, Responsive AI Panel */
+@media (max-width: 767px) {
+  .app-shell {
+    display: block;
+    padding: 0;
+  }
+
+  .sidebar-left,
+  .sidebar-right {
+    display: none;
+  }
+
+  .main-column {
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    padding-bottom: 72px;
+  }
+
+  .top-header {
+    padding: 8px 16px;
+    min-height: 50px;
+  }
+
+  .mobile-profile-shortcut {
+    display: inline-flex;
+  }
+
+  .compose-box {
+    padding: 14px 16px;
+  }
+
+  .post-card {
+    padding: 14px 16px;
+  }
+
+  .post-actions {
+    gap: 2px;
+  }
+
+  .post-action-btn {
+    min-height: 44px;
+    padding: 6px 8px;
+    font-size: 12.5px;
+  }
+
+  .profile-banner {
+    height: 136px;
+  }
+
+  .profile-details {
+    padding: 0 16px 16px;
+  }
+
+  .profile-avatar-actions {
+    margin-top: -40px;
+  }
+
+  .avatar-lg {
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+  }
+
+  /* Compact Bottom Navigation Bar (56px height, well within mobile sticky budget) */
+  .mobile-bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 35;
+    height: 56px;
+    background-color: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border-hairline);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    height: 100%;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .mobile-nav-item .nav-icon {
+    width: 21px;
+    height: 21px;
+  }
+
+  .mobile-nav-item.is-active {
+    color: var(--accent-blue);
+  }
+
+  /* Floating AI Button positioned cleanly above bottom nav */
+  .ai-fab {
+    right: 16px;
+    bottom: 70px;
+    width: 52px;
+    height: 52px;
+  }
+
+  /* Full-viewport mobile AI chat drawer */
+  .ai-chat-panel {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    border: none;
+    z-index: 60;
+  }
+}
