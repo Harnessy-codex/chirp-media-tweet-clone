@@ -425,6 +425,12 @@ function bindNavigationEvents() {
     ?.addEventListener('click', () => showProfileView(LOGGED_IN_USER_ID));
 }
 
+
+
+loadWelcomeMessage();
+
+
+
 /**
  * Start the app.
  */
@@ -433,6 +439,26 @@ function initApp() {
   initComposeBox({ onPublish: handlePublishPost });
   bindNavigationEvents();
   loadAppData();
+
+  loadWelcomeMessage(); // Load welcome message
 }
 
+// Load the welcome message from our endpoint
+async function loadWelcomeMessage() {
+
+    const welcomeMessage = document.getElementById("welcome-message");
+
+    try {
+        const response = await fetch("/api/hello");
+
+        const data = await response.json();
+
+        welcomeMessage.textContent = data.message;
+
+    } catch (error) {
+        console.log(error);
+        welcomeMessage.textContent = "Could not load welcome message.";
+    }
+
+}
 initApp();

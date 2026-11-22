@@ -277,7 +277,13 @@ const server = http.createServer(async (request, response) => {
     sendJson(response, 400, { error: 'The request address is not valid.' });
     return;
   }
-
+// Our first custom endpoint
+if (requestUrl.pathname === '/api/hello' && request.method === 'GET') {
+    sendJson(response, 200, {
+        message: 'Hello! Welcome to Chirp.'
+    });
+    return;
+}
   if (requestUrl.pathname === '/api/health' && request.method === 'GET') {
     sendJson(response, 200, {
       status: 'ok',
